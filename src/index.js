@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux'
+import {createStore,applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
+import rootReducer from './reducers/index'
+import {fetchMemes} from './actions/index'
+
+const store = createStore(rootReducer,applyMiddleware(thunk));
+store.subscribe(() => console.log('getSate() : ' , store.getState()))
+store.dispatch(fetchMemes());
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider> ,
   document.getElementById('root')
 );
 
