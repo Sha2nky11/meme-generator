@@ -11,3 +11,75 @@ body{
   font-family: monospace;
   padding: 10px;
 }
+
+.meme-item {
+  text-align: left;
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.meme-img {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 8px;
+  border: 3px solid white;
+  object-fit: cover;
+  filter: brightness(90%);
+}
+
+.meme-text {
+  width: 150px;
+  color:white;
+  position: absolute;
+  text-align: center;
+  border-radius: 5px;
+  animation: fade-in 1s;
+  bottom: 0;
+  font-size: 14px;
+}
+
+Button {
+  margin: 20px;
+}
+
+.no-text {
+  display: none;
+}
+
+.dark-meme-img {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  border-radius: 8px;
+  border: 3px solid white;
+  object-fit: cover;
+  background-color: grey;
+  filter: brightness(40%);
+  animation: darken 1s;
+}
+
+@keyframes darken {
+  from{filter: brightness(90%)};
+  to {filter: brightness(40%)};
+}
+
+@keyframes fade-in {
+  from{opacity: 0}
+  to {opacity: 100}
+}
+
+.mymeme-img {
+  display: inline-block;
+  margin: 10px;
+  width: 200px;
+  position: relative;
+  border-radius: 4px;
+  border: 3px solid white;
+  
+}
