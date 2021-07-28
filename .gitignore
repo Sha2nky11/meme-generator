@@ -1,3 +1,4 @@
+  
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -23,9 +24,3 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/actions/secrets.js
-# Azure Functions artifacts
-bin
-obj
-appsettings.json
-local.settings.json
-node_modules
