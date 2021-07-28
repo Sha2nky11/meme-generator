@@ -15,12 +15,17 @@ class MemeItems extends Component {
 
     postMemes(){
         const {text0,text1} = this.props;
+       
         const memeObj = {
             template_id : this.props.memes.id,
             text0,
             text1
         }
-        this.props.createMeme(memeObj);
+         if(text0 || text1)
+             this.props.createMeme(memeObj) ;
+         else{
+             alert("Please enter something in Top/Bottom Inputs" );
+         }    
     }
 
     render() {

@@ -1,3 +1,4 @@
+import { Alert } from 'react-bootstrap';
 import {username,password} from '../actions/secrets'
 
 export const RECEIVE_MEMES = 'RECEIVE_MEMES'
@@ -12,9 +13,14 @@ function receiveMemes(json){
     }
 }
 
-function fetchMemesJson(){
-    return fetch("https://api.imgflip.com/get_memes")
+async function fetchMemesJson(){
+    try{
+    return await fetch("https://api.imgflip.com/get_memes")
     .then(response => response.json());
+    }
+    catch(error){
+        <Alert color='primary' fade={false}>check it out!</Alert>
+    }
 }
 
 export function fetchMemes() {
@@ -32,7 +38,7 @@ function newMeme(memes){
     }
 }
 
-function postMemesJson(param){
+async function postMemesJson(param){
     param["username"]=username;
     param["password"]=password;
 
@@ -40,14 +46,18 @@ function postMemesJson(param){
         return encodeURIComponent(key) + '=' + encodeURIComponent(param[key])
     }).join('&');
 
-    console.log('bodyParams'+ bodyParams);
-    return fetch("https://api.imgflip.com/caption_image",{
+    try{
+    return await fetch("https://api.imgflip.com/caption_image",{
         method:"POST",
         headers: {
             'Content-Type':'application/x-www-form-urlencoded'
         },
         body :bodyParams 
     }).then(response => response.json())
+    }
+    catch(error){
+        <Alert color='primary' fade={false}>check it out!</Alert>
+    }
 
 }
 

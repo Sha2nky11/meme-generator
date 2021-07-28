@@ -11,11 +11,12 @@ class App extends Component {
     super();
 
     this.state = {
-      memelimit:10,
+      memelimit:16,
       text0 : "",
       text1 : ""
     }
   }
+  
 
   render() {
     return (
@@ -28,13 +29,13 @@ class App extends Component {
               <FormGroup>
                 <FormLabel> Top </FormLabel>
                 {" "}
-                <FormControl  type="text" onChange={(event) => this.setState({text0: event.target.value})} />
+                <FormControl required type="text" onChange={(event) => this.setState({text0: event.target.value})} />
               </FormGroup>
               { "    "}
               <FormGroup>
                 <FormLabel> Bottom </FormLabel>
                 {" "}
-                <FormControl type="text"  onChange={(event) => this.setState({text1: event.target.value})} />
+                <FormControl required type="text"  onChange={(event) => this.setState({text1: event.target.value})} />
               </FormGroup>
           </Form>
           { 

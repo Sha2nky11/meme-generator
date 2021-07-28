@@ -9,8 +9,9 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers/index'
 import {fetchMemes} from './actions/index'
 
+
 const store = createStore(rootReducer,applyMiddleware(thunk));
-store.subscribe(() => console.log('getSate() : ' , store.getState()))
+//store.subscribe(() => console.log('getSate() : ' , store.getState()))
 store.dispatch(fetchMemes());
 
 ReactDOM.render(
